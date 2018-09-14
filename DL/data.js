@@ -1,10 +1,10 @@
 var data = [
 {
-	title: 'Assignment #1 (Single Layer Perceptron)',
+	title: 'Single Layer Neural Network',
 	path: 'SLP/SLP.html'
 },
 {
-	title: 'Assignment #2 (Multi Layer Perceptron with Error Back Propagation)',
+	title: 'Multi Layer Neural Network with Error Back Propagation)',
 	path: 'index.html'
 }
 ];
