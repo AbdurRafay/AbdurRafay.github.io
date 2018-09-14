@@ -1,0 +1,124 @@
+{
+    "players": [
+        {
+            "id": "1",
+            "name": "Samad",
+            "offset": {
+                "top": "30",
+                "left": "10"
+            }
+        },
+        {
+            "id": "2",
+            "name": "Asim",
+            "offset": {
+                "top": "130",
+                "left": "10"
+            }
+        },
+        {
+            "id": "3",
+            "name": "Saad",
+            "offset": {
+                "top": "230",
+                "left": "10"
+            }
+        },
+        {
+            "id": "4",
+            "name": "Ather",
+            "offset": {
+                "top": "330",
+                "left": "10"
+            }
+        },
+        {
+            "id": "5",
+            "name": "A.Rafay",
+            "offset": {
+                "top": "430",
+                "left": "10"
+            }
+        },
+        {
+            "id": "6",
+            "name": "Aun",
+            "offset": {
+                "top": "530",
+                "left": "10"
+            }
+        },
+        {
+            "id": "7",
+            "name": "Danish",
+            "offset": {
+                "top": "23.625",
+                "left": "390"
+            }
+        },
+        {
+            "id": "8",
+            "name": "Aneeq",
+            "offset": {
+                "top": "356.625",
+                "left": "401.25"
+            }
+        },
+        {
+            "id": "9",
+            "name": "Mobeen",
+            "offset": {
+                "top": "275.625",
+                "left": "298"
+            }
+        },
+        {
+            "id": "10",
+            "name": "Shahab",
+            "offset": {
+                "top": "273.625",
+                "left": "588"
+            }
+        },
+        {
+            "id": "11",
+            "name": "Ahmed",
+            "offset": {
+                "top": "64.625",
+                "left": "597"
+            }
+        },
+        {
+            "id": "12",
+            "name": "Zeeshan",
+            "offset": {
+                "top": "482.625",
+                "left": "590"
+            }
+        },
+        {
+            "id": "13",
+            "name": "Hamza",
+            "offset": {
+                "top": "490.625",
+                "left": "829"
+            }
+        },
+        {
+            "id": "14",
+            "name": "Ovais",
+            "offset": {
+                "top": "64.625",
+                "left": "810"
+            }
+        },
+        {
+            "id": "15",
+            "name": "Fahad",
+            "offset": {
+                "top": "456.625",
+                "left": "815"
+            }
+        }
+    ]
+}

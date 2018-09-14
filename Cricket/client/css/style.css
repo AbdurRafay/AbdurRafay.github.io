@@ -1,0 +1,73 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background-image: url("../assets/soccer-field.jpg");
+    background-size: 100% 100%;
+}
+.left,.right {
+    /*background: #80DAEB;*/
+    float: left;
+    width: 5%;
+    height: 100%;
+}
+.middle {
+    position: relative;
+    /*background-image: url("../assets/soccer-field.jpg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100% 100%;*/
+    float: left;
+    width: 90%;
+    height: 100%;
+}
+.playerBox {
+    /*background: purple;*/
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    width: auto;
+    height: 60px;
+    z-index: 100;
+}
+.playerBox img {
+    width: auto;
+    height: 100%;
+    vertical-align: middle;
+}
+.playerBox .playerName {
+    /*background: red;*/
+    color: Red;
+    background-color: white;
+    font-weight: bolder;
+}
+.playerBox .playerId {
+
+    color: Red;
+    font-weight: bolder;
+
+    transition: opacity 1.0s ease-in-out;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -webkit-animation: fadeout 2s ease-in;
+    font-family:Forte;
+    font-size: x-large;
+}
+.middle .playerBox {
+    position: absolute;
+}
+.saveWrapper {
+    /*background: orange;*/
+    width: 100%;
+    height: 4%;
+}
+.save,.add {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+.add {
+    float: right;
+}

@@ -1,0 +1,33 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+#myCanvas {
+	width: 100%;
+	height: 80%;
+	display: block;
+	border: 1px solid #000000;
+	background-color: Silver;
+}
+#mainContainer {
+	width: 90%;
+	height: 100%;
+	/*background-color: gray;*/
+}
+.centerForBlock {
+	margin:0px auto;
+}
+.centerForInline {
+    text-align: center;
+}
+#inputTable {
+	width: 100%;
+	height: 19%;
+	border: 1px solid #ff0000;
+	background-color: Gray;
+}
+#inputTable tr td button {
+    width: 70%;
+}
+td { width: 33.33%; }
