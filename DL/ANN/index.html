@@ -19,18 +19,16 @@
         Y = math.transpose( math.matrix(data.y) );
         numOfLayers = 1 + 1 + 1;
         lengthOfHiddenLayer = 2;
-        // W1 = math.zeros(X.size()[1],lengthOfHiddenLayer);
-        W1 = math.matrix([ [1,2],  [3,4], [5,6] ])
-        W2 = math.matrix([ [7],  [8] ])
-        W = [W1, W2];
-        A1 = math.matrix([ [100,200], [300,400], [500,600] ])
-        A2 = math.matrix([ [111], [222], [333] ])
-        A = [math.transpose(X), A1, A2]
-        width = window.outerWidth * 0.7;
-        height = window.outerHeight * 0.7;
+        W = []        
+        initWeights()
+        A = []
+        calculateActivations()
+        width = window.outerWidth * 0.67;
+        height = window.outerHeight * 0.67;
         // stage;
         neurons = [];
         neuronRadius = 50;
+        duration = 3000;
         function init() {
           var canvas = document.getElementById("demoCanvas");
           canvas.width = width;
@@ -66,17 +64,6 @@
             }
           }
 
-          // var neuron1 = addNeuron(100, 100, 50, stage);
-          // var neuron2 = addNeuron(100, 250, 50, stage);
-          // var neuron3 = addNeuron(100, 400, 50, stage);
-
-          // var neuron4 = addNeuron(400, 100, 50, stage);
-          // var neuron5 = addNeuron(400, 250, 50, stage);
-          // var neuron6 = addNeuron(400, 400, 50, stage);
-
-          // var labels = labelConnection(neuron1, neuron4, "0", "1", stage);
-          // simulateLabels(labels.inputText, labels.weightText, neuron1, neuron4, stage);
-
           X._data.forEach(function (sample, sampleIndex) {
             if (sampleIndex == 0) {
 
@@ -93,44 +80,61 @@
                 if (toLayer) {
                   layer.forEach(function (neuron, neuronIndex) {
                     toLayer.forEach(function (toNeuron, toNeuronIndex) {
-                      sleep((layerIndex+1) * 5000).then(() => {
+                      sleep((layerIndex+1) * duration).then(() => {
                         console.log(neuronIndex,toNeuronIndex)
                         var input = A[layerIndex]._data[neuronIndex][toNeuronIndex]
                         var weight = W[layerIndex]._data[neuronIndex][toNeuronIndex]
                         var labels = labelConnection(neuron, toNeuron,  input, weight);
-                        simulateLabels(labels.inputText, labels.weightText, neuron, toNeuron);
+                        simulateLabels(labels.inputText, labels.weightText, neuron, toNeuron, true);
                       })                        
                     })
                   })  
                 }                              
               })
-              // sample.forEach(function (input, inputIndex) {
-              //   W1._data[inputIndex].forEach(function (weight, weightIndex) {
-              //     var neuron = neurons[0][inputIndex];
-              //     var toNeuron = neurons[1][weightIndex];
-              //     var labels = labelConnection(neuron, toNeuron, input, weight);
-              //     simulateLabels(labels.inputText, labels.weightText, neuron, toNeuron);
-              //   })            
-              // })
             } 
           })
 
-          function sleep (time) {
-            return new Promise((resolve) => setTimeout(resolve, time));
+
+        }
+        function calculateActivations() {
+          for (var i = 0; i < numOfLayers; i++) {
+            var a
+            if (i==0) {
+              a = math.transpose(X)
+              // w = math.matrix([ [1,2],  [3,4], [5,6] ])
+            } else {
+              var z = math.multiply(A[i-1],W[i-1])
+              a = sigmoid(z)
+            }
+            A.push(a)
           }
-          
-          // var connection = connectNeurons(neuron1, neuron4, stage);
-          // var connection = connectNeurons(neuron1, neuron5, stage);
-          // var connection = connectNeurons(neuron1, neuron6, stage);
+          // var A1 = math.matrix([ [100,200], [300,400], [500,600] ])
+          // var A2 = math.matrix([ [111], [222], [333] ])
+          // A = [math.transpose(X), A1, A2]
+        }
+        function sigmoid(z) {
+          var bottom = math.add(1, math.exp(math.multiply(-1, z)));
+          return math.dotDivide(1, bottom);
+        }
 
-          // var connection = connectNeurons(neuron2, neuron4, stage);
-          // var connection = connectNeurons(neuron2, neuron5, stage);
-          // var connection = connectNeurons(neuron2, neuron6, stage);
+        function initWeights() {
+          for (var i = 0; i < numOfLayers-1; i++) {
+            var w
+            if (i==0) {
+              w = math.zeros(X.size()[1],lengthOfHiddenLayer)
+              // w = math.matrix([ [1,2],  [3,4], [5,6] ])
+            } else if (i == numOfLayers-2) {
+              w = math.zeros(lengthOfHiddenLayer,Y.size()[1])
+              // w = math.matrix([ [7],  [8] ])
+            } else {
+              w = math.zeros(lengthOfHiddenLayer,lengthOfHiddenLayer)
+            }
+            W.push(w)
+          }
+        }
 
-          // var connection = connectNeurons(neuron3, neuron4, stage);
-          // var connection = connectNeurons(neuron3, neuron5, stage);
-          // var connection = connectNeurons(neuron3, neuron6, stage);
-
+        function sleep (time) {
+          return new Promise((resolve) => setTimeout(resolve, time));
         }
         function addNeuron(x, y, r) {
           var circle = new createjs.Shape();
@@ -170,15 +174,24 @@
           stage.update();
           return {inputText: inputText, weightText: weightText};
         }
-        async function simulateLabels(input, weight, from, to) {
-          duration = 5000;
+        function simulateLabels(input, weight, from, to, shouldClear) {
           createjs.Tween.get(input, {loop: false})
           .to({x: to.x, y: to.y}, duration, createjs.Ease.getPowInOut(4))
+          .call(function(argument) {
+            if (shouldClear) {
+              stage.removeChild(input)
+            }
+          })
           createjs.Tween.get(weight, {loop: false})
           .to({x: to.x, y: to.y}, duration, createjs.Ease.getPowInOut(4))
-
+          .call(function(argument) {
+            if (shouldClear) {
+              stage.removeChild(weight)
+            }
+          })
+          
           createjs.Ticker.setFPS(60);
-          createjs.Ticker.addEventListener("tick", stage);
+          createjs.Ticker.addEventListener("tick", stage)          
         }
         function pause(button) {
           createjs.Ticker.removeEventListener("tick", stage)
