@@ -24,11 +24,11 @@
         A = []
         calculateActivations()
         width = window.outerWidth * 0.67;
-        height = window.outerHeight * 0.67;
+        height = window.outerHeight * 0.77;
         // stage;
         neurons = [];
         neuronRadius = 50;
-        duration = 3000;
+        duration = 5000;
         function init() {
           var canvas = document.getElementById("demoCanvas");
           canvas.width = width;
@@ -66,41 +66,59 @@
 
           X._data.forEach(function (sample, sampleIndex) {
             if (sampleIndex == 0) {
-
-              sample.forEach(function (input, inputIndex) {
-                var neuron = neurons[0][inputIndex];
-                var dummyNeuron = getLocation(neuron, -neuronRadius*2, 0);
-                var labels = labelConnection(dummyNeuron, neuron, input, "");
-                simulateLabels(labels.inputText, labels.weightText, dummyNeuron, neuron);
-              })
-
-              // Usage!
-              neurons.forEach(function (layer, layerIndex) {
-                var toLayer = neurons[layerIndex+1]
-                if (toLayer) {
-                  layer.forEach(function (neuron, neuronIndex) {
-                    toLayer.forEach(function (toNeuron, toNeuronIndex) {
-                      sleep((layerIndex+1) * duration).then(() => {
-                        console.log(neuronIndex,toNeuronIndex)
-                        var input = A[layerIndex]._data[neuronIndex][toNeuronIndex]
-                        var weight = W[layerIndex]._data[neuronIndex][toNeuronIndex]
-                        var labels = labelConnection(neuron, toNeuron,  input, weight);
-                        simulateLabels(labels.inputText, labels.weightText, neuron, toNeuron, true);
-                      })                        
-                    })
-                  })  
-                }                              
-              })
+              simulateForwardPass(sample, sampleIndex)
             } 
           })
 
+
+        }
+        function simulateForwardPass(sample, sampleIndex) {
+          // input layer
+          neurons[0].forEach(function (neuron, neuronIndex) {
+            var dummyNeuron = getLocation(neuron, -neuronRadius*2, 0)
+            var input = A[0]._data[sampleIndex][neuronIndex]
+            var labels = labelConnection(dummyNeuron, neuron, input, "")
+            simulateLabels(labels.inputText, labels.weightText, dummyNeuron, neuron)
+          })
+          
+          // hidden layers
+          neurons.forEach(function (layer, layerIndex) {
+            var toLayer = neurons[layerIndex+1]
+            if (toLayer) {
+              layer.forEach(function (neuron, neuronIndex) {
+                toLayer.forEach(function (toNeuron, toNeuronIndex) {
+                  sleep((layerIndex+1) * duration).then(() => {
+                    console.log(neuronIndex,toNeuronIndex)
+                    var input = A[layerIndex]._data[sampleIndex][neuronIndex]
+                    var weight = W[layerIndex]._data[neuronIndex][toNeuronIndex]
+                    var labels = labelConnection(neuron, toNeuron, input, weight);
+                    simulateLabels(labels.inputText, labels.weightText, neuron, toNeuron, true);
+                  })
+                  sleep((layerIndex+2) * duration).then(() => {
+                    var input = A[layerIndex+1]._data[sampleIndex][toNeuronIndex]
+                    var labels = labelConnection(toNeuron, null, round(input), "");
+                  })                        
+                })
+              })  
+            }                              
+          })
+
+          // output layer
+          neurons[neurons.length-1].forEach(function (neuron, neuronIndex) {
+            sleep((numOfLayers) * duration).then(() => {
+              var dummyNeuron = getLocation(neuron, neuronRadius*2, 0)
+              var input = A[neurons.length-1]._data[sampleIndex][neuronIndex]
+              var labels = labelConnection(neuron, dummyNeuron, input, "")
+              simulateLabels(labels.inputText, labels.weightText, neuron, dummyNeuron)
+            })
+          })
 
         }
         function calculateActivations() {
           for (var i = 0; i < numOfLayers; i++) {
             var a
             if (i==0) {
-              a = math.transpose(X)
+              a = X
               // w = math.matrix([ [1,2],  [3,4], [5,6] ])
             } else {
               var z = math.multiply(A[i-1],W[i-1])
@@ -114,18 +132,21 @@
         }
         function sigmoid(z) {
           var bottom = math.add(1, math.exp(math.multiply(-1, z)));
-          return math.dotDivide(1, bottom);
+          var a = math.dotDivide(1, bottom)
+          return a
         }
-
+        function round(num) {
+          return Math.round(num * 100) / 100
+        }
         function initWeights() {
           for (var i = 0; i < numOfLayers-1; i++) {
             var w
             if (i==0) {
-              w = math.zeros(X.size()[1],lengthOfHiddenLayer)
-              // w = math.matrix([ [1,2],  [3,4], [5,6] ])
+              // w = math.zeros(X.size()[1],lengthOfHiddenLayer)
+              w = math.matrix([ [1,2],  [3,4], [5,6] ])
             } else if (i == numOfLayers-2) {
-              w = math.zeros(lengthOfHiddenLayer,Y.size()[1])
-              // w = math.matrix([ [7],  [8] ])
+              // w = math.zeros(lengthOfHiddenLayer,Y.size()[1])
+              w = math.matrix([ [7],  [8] ])
             } else {
               w = math.zeros(lengthOfHiddenLayer,lengthOfHiddenLayer)
             }
@@ -164,7 +185,7 @@
           inputText.x = weightText.x = a.x;
           inputText.y = weightText.y = a.y;
           // angle in degrees
-          var angleDeg = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+          // var angleDeg = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
           // inputText.rotation = weightText.rotation = angleDeg;
           inputText.textBaseline = "bottom";
           weightText.textBaseline = "top";
