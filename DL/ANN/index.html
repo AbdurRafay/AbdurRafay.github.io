@@ -28,6 +28,7 @@
         initWeights()
         A = []
         calculateActivations()
+        learningRate = 0.5;
         width = window.outerWidth * 0.47;
         height = window.outerHeight * 0.67;
         neurons = [];
@@ -77,22 +78,35 @@
           X._data.forEach(function (sample, sampleIndex) {
             // if (sampleIndex == 0) {
             sleep(sampleIndex * duration * (numOfLayers+1)).then(() => {
-              simulateForwardPass(sample, sampleIndex, resetNetwork)
+              simulateForwardPass(sample, sampleIndex, updateOutputLayer)
             })              
             // } 
           })
 
 
         }
-        function resetNetwork() {
-          // var count = (X.size()[1] * 2) + (Y.size()[1] * 2) + 
-          //             (numOfHiddenLayers * lengthOfHiddenLayer) + 
-          //             (X.size()[1] * lengthOfHiddenLayer) + 
-          //             (Y.size()[1] * lengthOfHiddenLayer)
-
-          // for (var i = stage.children.length - 1; i >= count; i--) {
-            // simulationStage.removeAllChildren()
-          // }
+        function updateOutputLayer() {
+          var output = math.multiply(-1,A[numOfLayers-1])
+          error = math.add(Y, output)
+          var input = math.transpose(A[numOfLayers-2])
+          var update = math.multiply(input, error)
+          var constant = -1 / (2*X.size()[0])
+          var minUpdate = math.multiply(constant, update)
+          var updateRule = math.multiply(-learningRate, minUpdate)
+          W[numOfLayers-2] = math.add(W[numOfLayers-2], updateRule)
+        }
+        function updateHiddenLayers() {
+          for (var i = numOfLayers - 2; i >= 0; i--) {
+            var constant = -1 / (2*X.size()[0])
+            var nextWeights = math.transpose(W[i])
+            var output = math.multiply(-1,A[numOfLayers-1])
+            error = math.add(Y, output)
+            var input = math.transpose(A[numOfLayers-2])
+            var update = math.multiply(input, error)
+            var minUpdate = math.multiply(constant, update)
+            var updateRule = math.multiply(-learningRate, minUpdate)
+            W[numOfLayers-2] = math.add(W[numOfLayers-2], updateRule)
+          }          
         }
         function simulateForwardPass(sample, sampleIndex, callback) {
           simulationStage = new createjs.Stage("simulationCanvas");
