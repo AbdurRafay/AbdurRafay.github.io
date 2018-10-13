@@ -27,9 +27,9 @@
         W = []        
         initWeights()
         A = []
-        calculateActivations()
+        forwardPass()
         learningRate = 0.5;
-        width = window.outerWidth * 0.47;
+        width = window.outerWidth * 0.75;
         height = window.outerHeight * 0.67;
         neurons = [];
         neuronRadius = 50;
@@ -76,14 +76,21 @@
           }
 
           X._data.forEach(function (sample, sampleIndex) {
-            // if (sampleIndex == 0) {
             sleep(sampleIndex * duration * (numOfLayers+1)).then(() => {
-              simulateForwardPass(sample, sampleIndex, updateOutputLayer)
-            })              
-            // } 
+              simulateForwardPass(sample, sampleIndex)
+            })
+            if(sampleIndex === X._data.length-1) {
+              sleep((sampleIndex+1) * duration * (numOfLayers+1)).then(() => {
+                backwardPass()
+              })
+            }              
           })
 
 
+        }
+        function backwardPass() {
+          updateOutputLayer()
+          updateHiddenLayers()
         }
         function updateOutputLayer() {
           var output = math.multiply(-1,A[numOfLayers-1])
@@ -97,15 +104,18 @@
         }
         function updateHiddenLayers() {
           for (var i = numOfLayers - 2; i >= 0; i--) {
-            var constant = -1 / (2*X.size()[0])
-            var nextWeights = math.transpose(W[i])
+            var input = A[i-1]
+            var derivative = math.dotMultiply(A[i], math.add(1, math.multiply(-1, A[i])))
             var output = math.multiply(-1,A[numOfLayers-1])
-            error = math.add(Y, output)
-            var input = math.transpose(A[numOfLayers-2])
-            var update = math.multiply(input, error)
+            var error = math.add(Y, output)
+            var nextWeights = math.transpose(W[i])
+            var constant = -1 / (2*X.size()[0])
+            var derivativeInput = math.multiply(derivative, input)
+            var weightedError = math.multiply(nextWeights, error)
+            var update = math.multiply(weightedError, derivativeInput)
             var minUpdate = math.multiply(constant, update)
             var updateRule = math.multiply(-learningRate, minUpdate)
-            W[numOfLayers-2] = math.add(W[numOfLayers-2], updateRule)
+            W[i-1] = math.add(W[i-1], updateRule)
           }          
         }
         function simulateForwardPass(sample, sampleIndex, callback) {
@@ -151,11 +161,13 @@
           })
 
           sleep((numOfLayers+1) * duration).then(() => {
-            callback()
+            if (callback) {
+              callback()
+            }
           })
 
         }
-        function calculateActivations() {
+        function forwardPass() {
           for (var i = 0; i < numOfLayers; i++) {
             var a
             if (i==0) {
