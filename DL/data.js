@@ -6,5 +6,9 @@ var data = [
 {
 	title: 'Multi Layer Neural Network with Error Back Propagation)',
 	path: 'index.html'
+},
+{
+	title: 'Artificial Neural Network',
+	path: 'ANN/index.html'
 }
 ];
