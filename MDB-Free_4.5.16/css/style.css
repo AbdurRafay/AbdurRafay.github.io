@@ -1,0 +1,37 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /*overflow: hidden;*/
+}
+
+header {
+	/*height: 56px;*/
+}
+
+main {
+	/*width: 100%;*/
+  /*height: -webkit-fill-available;*/
+  /*padding-top: 56px;*/
+	/*overflow: hidden;*/
+}
+
+#grid {
+	width: 200%;
+}
+
+img {
+	width: 100%;
+}
+
+.no-gutters, .no-gutters > .row > .col {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.no-gutters > .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
