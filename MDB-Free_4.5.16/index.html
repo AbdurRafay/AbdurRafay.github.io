@@ -22,12 +22,12 @@
   <!--Main Navigation-->
   <header>
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar top-nav-collapse">
 
       <div class="container">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#land">Navbar</a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -39,41 +39,48 @@
         <div class="collapse navbar-collapse" id="basicExampleNav">
 
           <!-- Links -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#home">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#features">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#pricing">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#login">Login</a>
-            </li>
+          <ul class="navbar-nav mr-auto smooth-scroll">
+              <!-- Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Screening Tests</a>
+                  <a class="dropdown-item" href="#">Interviews</a>
+                  <a class="dropdown-item" href="#">Take-home Projects</a>
+                </div>
+              </li>
 
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">Dropdown</a>
-              <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#supportedLanguages">Supported Languages</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#pricing">Pricing</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#login">Login</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#signup">Sign Up Free</a>
+              </li>              
 
           </ul>
           <!-- Links -->
 
-          <form class="form-inline">
-            <div class="md-form my-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </div>
-          </form>
+          <!-- Social Icon  -->
+          <ul class="navbar-nav nav-flex-icons">
+              <li class="nav-item">
+                  <a class="nav-link"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link"><i class="fa fa-instagram"></i></a>
+              </li>
+          </ul>
         </div>
         <!-- Collapsible content -->
 
@@ -88,19 +95,30 @@
   <main>
     <div id="grid" class="container-fluid no-gutters">
       <div class="row">
-        <div id="home" class="col">
-          <img src="img/home.png">
+        <!-- Landing -->
+        <div id="land" class="col">
+          <img src="img/land.png" usemap="#planetmap">
+
+          <map name="planetmap">
+            <area shape="rect" coords="599,335,170,66" href="#signup">
+          </map>
         </div>
-        <div id="features" class="col">
-          <img src="img/tests.png">
+        <div id="signup" class="col">
+          <img src="img/signup.jpg">
         </div>
-      </div>
-      <div class="row">
         <div id="pricing" class="col">
           <img src="img/pricing.png">
         </div>
+      </div>
+      <div class="row">
         <div id="login" class="col">
           <img src="img/login.png">
+        </div>
+        <div id="home" class="col">
+          <img src="img/home.jpg">
+        </div>
+        <div id="" class="col">
+          <img src="img/tests.jpg">
         </div>
       </div>
     </div>
@@ -124,8 +142,19 @@
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src1="js/mdb.min.js"></script>
+  <script type="text/javascript" src1="js/imageMapResizer.min.js"></script>
   <script type="text/javascript">
+    $(document).ready(function() {
+        $('map').imageMapResize();
+    });
+    $(document).ready(function() {
+        $("img").on("click", function(event) {
+            var x = event.pageX - this.offsetLeft;
+            var y = event.pageY - this.offsetTop;
+            alert("X Coordinate: " + x + " Y Coordinate: " + y);
+        });
+    });
     // $( '.row' ).on( 'mousewheel', function ( e ) {
     //   console.log("row scrolling")
     //   e.preventDefault();
