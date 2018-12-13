@@ -86,21 +86,21 @@
 
   <!--Main layout-->
   <main>
-    <div id="grid" class="container-fluid no-gutters">
-      <div class="row">
-        <div id="home" class="col">
-          <img src="img/home.png">
+    <div class="landing">
+      <div class="landing-row">
+        <div id="home" class="landing-col" style="background: yellow;">
+          <!-- <img src="img/home.png"> -->
         </div>
-        <div id="features" class="col">
-          <img src="img/tests.png">
+        <div id="features" class="landing-col" style="background: orange;">
+          <!-- <img src="img/home.png"> -->
         </div>
       </div>
-      <div class="row">
-        <div id="pricing" class="col">
-          <img src="img/pricing.png">
+      <div class="landing-row">
+        <div id="pricing" class="landing-col" style="background: red;">
+          <!-- <img src="img/pricing.png"> -->
         </div>
-        <div id="login" class="col">
-          <img src="img/login.png">
+        <div id="login" class="landing-col" style="background: green;">
+          <!-- <img src="img/login.png"> -->
         </div>
       </div>
     </div>
@@ -126,13 +126,13 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <script type="text/javascript">
-    $( '.row' ).on( 'mousewheel', function ( e ) {
-      console.log("row scrolling")
-      e.preventDefault();
-    });
-    $( '.col' ).on( 'mousewheel', function ( e ) {
-      console.log("col scrolling")
-    });
+    // $( '.row' ).on( 'mousewheel', function ( e ) {
+    //   console.log("row scrolling")
+    //   e.preventDefault();
+    // });
+    // $( '.col' ).on( 'mousewheel', function ( e ) {
+    //   console.log("col scrolling")
+    // });
   </script>
 </body>
 
