@@ -27,7 +27,7 @@
       <div class="container">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="#land">Navbar</a>
+        <a id="logo" class="navbar-brand" href="#land"></a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -100,7 +100,7 @@
           <img src="img/land.png" usemap="#planetmap">
 
           <map name="planetmap">
-            <area shape="rect" coords="599,335,170,66" href="#signup">
+            <area shape="rect" coords="600,250,770,310" href="#signup">
           </map>
         </div>
         <div id="signup" class="col">
@@ -118,7 +118,7 @@
           <img src="img/home.jpg">
         </div>
         <div id="" class="col">
-          <img src="img/tests.jpg">
+          <img src="img/tests.png">
         </div>
       </div>
     </div>
@@ -143,25 +143,15 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src1="js/mdb.min.js"></script>
-  <script type="text/javascript" src1="js/imageMapResizer.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-        $('map').imageMapResize();
+  <script type="text/javascript" src="js/jquery.rwdImageMaps.min.js"></script>
+  <script>
+    $(document).ready(function(e) {
+      $('img[usemap]').rwdImageMaps();
+      
+      // $('area').on('click', function() {
+      //   alert($(this).attr('alt') + ' clicked');
+      // });
     });
-    $(document).ready(function() {
-        $("img").on("click", function(event) {
-            var x = event.pageX - this.offsetLeft;
-            var y = event.pageY - this.offsetTop;
-            alert("X Coordinate: " + x + " Y Coordinate: " + y);
-        });
-    });
-    // $( '.row' ).on( 'mousewheel', function ( e ) {
-    //   console.log("row scrolling")
-    //   e.preventDefault();
-    // });
-    // $( '.col' ).on( 'mousewheel', function ( e ) {
-    //   console.log("col scrolling")
-    // });
   </script>
 </body>
 
