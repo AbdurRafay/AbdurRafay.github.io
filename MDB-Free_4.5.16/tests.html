@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Dec 2018 12:16:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HireTech</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/testsstyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--Main Navigation-->
+  <header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar top-nav-collapse">
+
+      <div class="container">
+
+        <!-- Navbar brand -->
+        <a id="logo" class="navbar-brand" href="home.html"></a>
+
+          <!-- Links -->
+        <ul class="navbar-nav mr-auto smooth-scroll">
+            <li class="nav-item">
+              <h1 class="nav-link nosidebar">Test Suite</h1>
+            </li>
+        </ul>
+        <!-- Links -->
+
+        <!-- Social Icon  -->
+        <ul class="navbar-nav nav-flex-icons">
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-user"></i>
+                  <span class="clearfix d-none d-sm-inline-block">Account</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Edit Profile</a>
+                  <a class="dropdown-item" href="#">Billing</a>
+                  <a class="dropdown-item" href="#">Team</a>
+                  <a class="dropdown-item" href="#">Integrations</a>
+                  <a class="dropdown-item" href="index.html">Logout</a>
+              </div>
+          </li>
+        </ul>
+
+      </div>
+
+    </nav>
+    <!--/.Navbar-->
+  </header>
+  <!--Main Navigation-->
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">                        
+                        <li>
+                            <a href="testadd.html">
+                              <img class="add" src="https://www.clipartmax.com/png/small/40-401636_clipartbest-com-7to9x9-clipart-blue-plus-sign-png.png">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <a href="trytests.html" class="btn btn-primary">Try Test</a>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="page-header"></h4>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div id="" class="full" data-reactid="4"><style data-reactid="5">#roomlistcontainer .roomlisttile {
+                    text-align: left;
+                    margin-left: 10px;
+                    margin-right: 20px;
+                    display: inline-block; }
+
+                #roomlistcontainer .roomlisttile .offer {
+                    background: #fff;
+                    margin: 15px 0px;
+                    cursor: pointer;
+                    border: 1px solid #f9f9f9;
+                    width: 340px;
+                    position: relative;
+                    height: 180px;
+                    box-shadow: 0 0 0 1px #d0d8df, 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+                    transition: all 0.3s;
+                    border-radius: 5px; }
+
+                #roomlistcontainer .roomlisttile .offer:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 0 0 2px #43c0fe, 0 22px 43px rgba(0, 0, 0, 0.15) !important; }
+
+                #roomlistcontainer .roomlisttile .offer .head {
+                    margin-top: 24px;
+                    padding-left: 20px;
+                    color: #555; }
+
+                #roomlistcontainer .roomlisttile .offer #title {
+                    margin-top: 5px;
+                    font-weight: 400;
+                    color: #777;
+                    font-size: 21px;
+                    margin-left: 0px;
+                    padding: 0px;
+                    width: 85%;
+                    position: absolute;
+                    overflow: hidden;
+                    word-wrap: normal;
+                    white-space: nowrap;
+                    text-overflow: ellipsis; }
+
+                #roomlistcontainer .roomlisttile .offer #date {
+                    margin-top: 35px;
+                    padding: 0;
+                    width: 85%;
+                    position: absolute;
+                    overflow: hidden;
+                    word-wrap: normal;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-weight: 100;
+                    font-size: 13px; }
+
+                #roomlistcontainer .roomlisttile .offer #foot {
+                    background: rgba(238, 238, 238, 0.3);
+                    border-top: 1px solid #ddd;
+                    border-radius: 0 0 5px 5px;
+                    transition: all 0.25s ease;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    font-weight: 200;
+                    letter-spacing: 0.4px;
+                    word-spacing: 1px;
+                    color: #428bca; }
+
+                #roomlistcontainer .roomlisttile .offer:hover #foot {
+                    background: #e3f2ff;
+                    border-top-color: #43c0fe; }
+
+                #roomlistcontainer .roomlisttile .offer #foot .footitem {
+                    width: 50%;
+                    text-align: center;
+                    float: left;
+                    padding-top: 10px;
+                    border-right: 1px solid #eee;
+                    transition: all 0.25s ease; }
+
+                #roomlistcontainer .roomlisttile .offer:hover #foot .footitem {
+                    margin-top: 5px;
+                    margin-bottom: 5px; }
+
+                #roomlistcontainer .roomlisttile .offer #foot .footitem:last-child {
+                    border-right-width: 0px; }
+
+                #roomlistcontainer .roomlisttile .offer .candcounttext {
+                    opacity: 1;
+                    margin-top: 18px;
+                    font-size: 10px;
+                    font-weight: 400;
+                    color: #666; }
+
+                #roomlistcontainer .roomlisttile .offer .candcount {
+                    font-weight: 400;
+                    font-size: 40px;
+                    margin-right: 5px;
+                    /* float: left; */
+                    font-weight: 100;
+                    font-size: 34px;
+                    display: block;
+                    margin: 0px;
+                    margin-top: -10px; }
+
+                #roomlistcontainer .roomlisttile .offer .toolbar {
+                    position: absolute;
+                    right: 0;
+                    top: 8px;
+                    opacity: 0;
+                    transition: all 0.3s ease;
+                    width: 45px; }
+
+                #roomlistcontainer .roomlisttile .offer:hover .toolbar {
+                    opacity: 1; }
+
+                .offer .toolbar #button_delete {
+                    background: #d96359;
+                    padding: 6px;
+                    border-radius: 50%;
+                    border: 0px;
+                    color: white;
+                    float: right;
+                    margin-right: 10px;
+                    cursor: pointer; }
+
+                .packs-options {
+                    margin-left: 4%;
+                    padding-left: 4%;
+                    border-left: 1px solid #e5e5e5; }
+
+                .packs-options .pack-item > label {
+                    width: 100%; }
+
+                .packs-options .pack-item {
+                    margin-bottom: 15px;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #e5e5e5;
+                    font-size: 16px; }
+
+                .packs-options .pack-item:last-child {
+                    border-bottom: 0px; }
+
+                .packs-options .pack-item i {
+                    float: right;
+                    color: #212121;
+                    font-style: normal; }
+
+                .packs-options .pack-item small {
+                    font-weight: 400;
+                    display: block;
+                    margin-top: 5px;
+                    width: calc(100% - 65px); }
+
+                #button_createroom {
+                    margin-top: 75px; }
+                </style><!-- react-empty: 6 --><div id="fullcontainer" class="full sidebarmode" data-reactid="7"><div id="roomlistcontainer" class="col-xs-12" data-reactid="42"><a href="/tests/#?roomid=-LTNJAdybCELND2AN30o" data-reactid="43"><div class="roomlisttile" data-reactid="44"><div class="offer" data-reactid="45"><div class="head" data-reactid="46"><div id="title" data-reactid="47">NLP</div><div id="date" data-reactid="48">December 10th, 2018</div></div><div id="foot" class="" data-reactid="49"><div class="footitem completed" data-reactid="50"><span class="candcounttext" data-reactid="51">for review</span><span class="candcount" data-reactid="52">0</span></div><div class="footitem total" data-reactid="53"><span class="candcounttext" data-reactid="54">total</span><span class="candcount" data-reactid="55">0</span></div></div><div class="toolbar" data-reactid="56"><button id="button_delete" class="glyphicon glyphicon-remove" data-reactid="57"></button></div></div></div></a><a href="/tests/#?roomid=-LTCXBNuOCAZkC-Lg_hF&amp;report=true" data-reactid="58"><div class="roomlisttile" data-reactid="59"><div class="offer" data-reactid="60"><div class="head" data-reactid="61"><div id="title" data-reactid="62">Computer Vision Engineer</div><div id="date" data-reactid="63">December 8th, 2018</div></div><div id="foot" class="" data-reactid="64"><div class="footitem completed" data-reactid="65"><span class="candcounttext" data-reactid="66">for review</span><span class="candcount" data-reactid="67">1</span></div><div class="footitem total" data-reactid="68"><span class="candcounttext" data-reactid="69">total</span><span class="candcount" data-reactid="70">1</span></div></div><div class="toolbar" data-reactid="71"><button id="button_delete" class="glyphicon glyphicon-remove" data-reactid="72"></button></div></div></div></a><a href="/tests/#?roomid=-LTBdtw04Y1OwkfZ4aaw&amp;report=true" data-reactid="73"><div class="roomlisttile" data-reactid="74"><div class="offer" data-reactid="75"><div class="head" data-reactid="76"><div id="title" data-reactid="77">NLP Engineer</div><div id="date" data-reactid="78">December 8th, 2018</div></div><div id="foot" class="" data-reactid="79"><div class="footitem completed" data-reactid="80"><span class="candcounttext" data-reactid="81">for review</span><span class="candcount" data-reactid="82">0</span></div><div class="footitem total" data-reactid="83"><span class="candcounttext" data-reactid="84">total</span><span class="candcount" data-reactid="85">1</span></div></div><div class="toolbar" data-reactid="86"><button id="button_delete" class="glyphicon glyphicon-remove" data-reactid="87"></button></div></div></div></a><a href="/tests/#?roomid=-LTBbipIhbnPx6BfR1TX&amp;report=true" data-reactid="88"><div class="roomlisttile" data-reactid="89"><div class="offer" data-reactid="90"><div class="head" data-reactid="91"><div id="title" data-reactid="92">Computer Vision Engineer</div><div id="date" data-reactid="93">December 8th, 2018</div></div><div id="foot" class="" data-reactid="94"><div class="footitem completed" data-reactid="95"><span class="candcounttext" data-reactid="96">for review</span><span class="candcount" data-reactid="97">1</span></div><div class="footitem total" data-reactid="98"><span class="candcounttext" data-reactid="99">total</span><span class="candcount" data-reactid="100">1</span></div></div><div class="toolbar" data-reactid="101"><button id="button_delete" class="glyphicon glyphicon-remove" data-reactid="102"></button></div></div></div></a></div></div></div>
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/raphael/raphael.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+
+<!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src1="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/jquery.rwdImageMaps.min.js"></script>
+  <script>
+    $("html").delay(0).animate({"opacity": "1"}, 1000);
+  </script>
+</body>
+
+
+<!-- Mirrored from blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Dec 2018 12:16:02 GMT -->
+</html>

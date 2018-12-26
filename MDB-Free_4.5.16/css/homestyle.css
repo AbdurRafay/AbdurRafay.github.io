@@ -1,3 +1,7 @@
+#msqs-container {
+    margin-top: 80px;
+}
+
 .top-nav-collapse {
   background-color: #428bca;
 }
@@ -161,12 +165,12 @@ section .section-title {
 
 .frontside .card .card-body img {
     width: 120px;
-    height: 250px;
+    height: 200px;
     border-radius: 50%;
 }
 
 .backside .card .card-body img {
     width: 120px;    
-    height: 250px;
+    height: 200px;
     border-radius: 50%;
 }
