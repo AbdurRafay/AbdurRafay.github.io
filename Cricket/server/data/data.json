@@ -2,7 +2,7 @@
     "players": [
         {
             "id": "1",
-            "name": "Aneeq",
+            "name": "Zain",
             "offset": {
                 "top": "30",
                 "left": "10"
@@ -26,7 +26,7 @@
         },
         {
             "id": "4",
-            "name": "Mobeen",
+            "name": "Haris R",
             "offset": {
                 "top": "330",
                 "left": "10"
@@ -34,7 +34,7 @@
         },
         {
             "id": "5",
-            "name": "Asim",
+            "name": "Danish",
             "offset": {
                 "top": "430",
                 "left": "10"
@@ -50,7 +50,7 @@
         },
         {
             "id": "7",
-            "name": "Ather",
+            "name": "Daniyal",
             "offset": {
                 "top": "23.625",
                 "left": "390"
@@ -82,7 +82,7 @@
         },
         {
             "id": "11",
-            "name": "Ahmed",
+            "name": "Wasi",
             "offset": {
                 "top": "64.625",
                 "left": "597"
@@ -102,6 +102,38 @@
             "offset": {
                 "top": "490.625",
                 "left": "829"
+            }
+        },
+        {
+            "id": "14",
+            "name": "Uzair",
+            "offset": {
+                "top": "510.625",
+                "left": "829"
+            }
+        },
+        {
+            "id": "15",
+            "name": "Wahab",
+            "offset": {
+                "top": "490.625",
+                "left": "10"
+            }
+        },
+        {
+            "id": "16",
+            "name": "Haris K",
+            "offset": {
+                "top": "510.625",
+                "left": "10"
+            }
+        },
+        {
+            "id": "17",
+            "name": "Asim",
+            "offset": {
+                "top": "530",
+                "left": "10"
             }
         }
     ]
